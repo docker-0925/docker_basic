@@ -48,3 +48,16 @@ docker version //check docker setelah install, akan mengembalikan info client & 
 docker image ls //melihat docker image di Docker Daemon
 docker image pull <nama-image:tag> //download docker image dari docker registry, bisa mencari docker image di hub.docker.com
 docker image rm <nama-image:tag> //hapus docker image yang sudah di download
+
+//Docker Container
+//Jika docker image mirip sebuah installer aplikasi, maka docker container mirip seperti aplikasi hasil installernya
+//Satu docker image bisa digunakan membuat beberapa docker container, asal nama container nya berbeda
+//Jika sudah membuat docker container dan menginstall docker image, image tsb tidak dapat dihapus karena container menggunakan isinya bukan mencopy
+//Secara default container tidak akan berjalan setelah dibuat, perlu menjalankannya jika ingin menjalankan container
+docker container ls -a //melihat semua container yang berjalan atau tidak
+docker container ls //melihat container yang berjalan
+docker container create --name <nama-container> <nama-image:tag> //membuat container, name container harus unix, jika sukses akan show container id
+//note : jika kita membuat container dengan image yang belum didownload, maka docker akan otomatis mendownload dulu
+docker container start <container-id> / <container-name> //menjalankan container
+docker container stop <container-id> / <container-name> //menghentikan container, sebelum menghapus
+docker container rm <container-id> / <container-name> //menghapus container
