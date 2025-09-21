@@ -31,3 +31,13 @@ Docker mendukung semua sistem oeprasi, meski kebanyakan berjalan di Linux
 docs.docker.com/get-docker/ //Docker Desktop (Windows, Mac) -> butuh menginstall virtualisasi OS Linux untuk docker
 docs.docker.com/engine/install/ //Linux -> langsung menggunakan sistem Linux nya, sesuaikan dengan distro linux user
 docker version //check docker setelah install, akan mengembalikan info client & server
+
+//Docker Registry
+//Tempat menyimpan docker image
+//Bisa menyimpan image yang dibuat, dan bisa digunakan di Docker Daemon dimanapun selama bisa terkoneksi ke Docker Registry
+//Contoh docker registry :
+//Docker Hub : https://hub.docker.com/
+//Digital Ocean Container Registry : https://www.digitalocean.com/products/container-registry/
+//Google Cloud Container Registry : https://cloud.google.com/container-registry
+//Amazon Elastic Container Registry : https://aws.amazon.com/id/ecr/
+//Azure Container Registry : https://azure.microsoft.com/en-us/services/container-registry/
