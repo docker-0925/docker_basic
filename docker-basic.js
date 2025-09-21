@@ -41,3 +41,10 @@ docker version //check docker setelah install, akan mengembalikan info client & 
 //Google Cloud Container Registry : https://cloud.google.com/container-registry
 //Amazon Elastic Container Registry : https://aws.amazon.com/id/ecr/
 //Azure Container Registry : https://azure.microsoft.com/en-us/services/container-registry/
+
+//Docker Image
+//Mirip seperti installer aplikasi, di dalam docker image terdapat aplikasi dan dependency
+//Sebelum bisa menjalankan aplikasi di Docker, perlu memastikan memiliki docker image aplikasi tersebut
+docker image ls //melihat docker image di Docker Daemon
+docker image pull <nama-image:tag> //download docker image dari docker registry, bisa mencari docker image di hub.docker.com
+docker image rm <nama-image:tag> //hapus docker image yang sudah di download
