@@ -61,3 +61,8 @@ docker container create --name <nama-container> <nama-image:tag> //membuat conta
 docker container start <container-id> / <container-name> //menjalankan container
 docker container stop <container-id> / <container-name> //menghentikan container, sebelum menghapus
 docker container rm <container-id> / <container-name> //menghapus container
+
+//Container Log
+//Untuk melihat log guna tau detail log aplikasi yang terdapat pada container agar memudahkan debugging
+docker container logs <container-id> / <container-name> //cek log container
+docker container logs -f <container-id> / <container-name> //cek log container secara realtime
