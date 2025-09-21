@@ -18,3 +18,10 @@
 //Salah satu implementasi Container Manager yang paling populer saat ini
 //Diperkenalkan sekitar tahun 2013, bersifat free dan open source
 docker.com
+
+//Arsitektur Docker
+//Docker menggunakan arsitektur Client-Server
+//Docker client berkomunikasi dengan Docker daemon (server), keduanya otomatis terinstall ketika menginstall docker
+//Docker client & Docker daemon bisa berjalan di satu sistem yang sama
+//Docker client & Docker daemon berkomunikasi menggunakan REST API
+//Saat menjalankan sebuah perintah dari Docker client, sebenarnya perintah tsb dieksekusi di Docker daemon (server)
