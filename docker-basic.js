@@ -1,0 +1,15 @@
+//Virtual Machine
+//Teknologi mesin virtual yang terdapat pada sebuah Sistem Operasi dalam dunia insfrastructure
+//Saat membuat sebuah VM, biasa akan menginstall sistem operasi juga di VM-nya
+//Terkadang sistem operasi dalam VM butuh waktu cukup lama untuk booting sistem oeprasinya atau dalam merestrart VM-nya
+//Terlebih lagi VM biasanya berjalan di Hypervisor (VMware, Vbox, dll) yang membutuhkan resourse yang besar
+
+//Container
+//Jika VM berfokus pada sistem operasi, Container sendiri berfokus pada sisi aplikasi
+//Container sebenarnya berjalan diatas aplikasi Container Manager yang berjalan di sistem oeprasi host
+//Pada VM kita harus menginstall OS lagi, namun dengan container bisa mem-package aplikasi & dependency tanpa harus install OS kembali
+//Container akan menggunakan OS host dimana Container Manager (Docker) nya berjalan -> membuat hemat resourse & lebih cepat
+//Ukuran container biasanya hanya hitungan MB, berbeda dengan VM yang bisa sampai GB karena harus ada OS sendiri di dalamnya
+//Analoginya jika kita install VM di windows maka di VM nya kita perlu install OS lagi untuk bisa menggunakan applikasi
+//Namun di container tidak perlu install OS lagi karena akan menggunakan windows di laptop/host kita sendiri
+//Di dalam Container Manager dapat menginstall beberapa container, dan tidak akan mengganggu proses antar container
