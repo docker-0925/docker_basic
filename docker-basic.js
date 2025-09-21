@@ -13,3 +13,8 @@
 //Analoginya jika kita install VM di windows maka di VM nya kita perlu install OS lagi untuk bisa menggunakan applikasi
 //Namun di container tidak perlu install OS lagi karena akan menggunakan windows di laptop/host kita sendiri
 //Di dalam Container Manager dapat menginstall beberapa container, dan tidak akan mengganggu proses antar container
+
+//Docker
+//Salah satu implementasi Container Manager yang paling populer saat ini
+//Diperkenalkan sekitar tahun 2013, bersifat free dan open source
+docker.com
