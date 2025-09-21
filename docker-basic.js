@@ -25,3 +25,9 @@ docker.com
 //Docker client & Docker daemon bisa berjalan di satu sistem yang sama
 //Docker client & Docker daemon berkomunikasi menggunakan REST API
 //Saat menjalankan sebuah perintah dari Docker client, sebenarnya perintah tsb dieksekusi di Docker daemon (server)
+
+//Menginstall Docker
+Docker mendukung semua sistem oeprasi, meski kebanyakan berjalan di Linux
+docs.docker.com/get-docker/ //Docker Desktop (Windows, Mac) -> butuh menginstall virtualisasi OS Linux untuk docker
+docs.docker.com/engine/install/ //Linux -> langsung menggunakan sistem Linux nya, sesuaikan dengan distro linux user
+docker version //check docker setelah install, akan mengembalikan info client & server
