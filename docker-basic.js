@@ -107,3 +107,14 @@ docker container stats //akan terlihat detail stats penggunaan resource tiap ima
 //Menentukan limit cpu dengan menambah --cpus diikut angka core cpu nya (0.5, 1, 1.5 dst). --cpus 1.5
 docker container create --name <nama-container> --publish <port-host:port-container> --memory 1g --cpus 1.5 <nama-image:tag>
 //Maka jika sudah dijalankan dan di cek stats nya pada bagian memory akan tertera limit memorynya
+
+//Bind Mounts
+//Kemampuan melakukan mounting (sharing) file/folder di host ke container yang terdapat di docker
+//Sangat berguna ketika ingin mengirim konfigurasi dari luar container/menyimpan data yang dibuat di aplikasi pada container ke dalam folder di host
+//Jika file/folder tidak ada di sistem host, maka secara otomatis akan dibuatkan oleh docker
+//Untuk melakukan mounting bisa menggunakan parameter --mount ketika membuat container dengan aturan :
+//type : bind/volume, source : lokasi di host, destination : lokasi di container, readonly : jika ada, akses hanya baca di container
+docker container create --name <nama-container> --mount "type=bind,source=folder,destination=folder,readonly" <nama-image:tag>
+docker container create --name mongo3 --publish 27019:27017 --mount "type=bind,source=D:\QA\PZN\Docker\docker_basic\mongo,destination=/data/db" --env MONGO_INITDB_ROOT_USERNAME=hasan3 --env MONGO_INITDB_ROOT_PASSWORD=password mongo:latest
+//Jika kita jalankan container diatas, maka pada folder source akan tersimpan file2 yang dibutuhkan mongo, dengan begini jika kita menghapus container tsb -> data di source tidak akan ikut terhapus dan bisa kita gunakan untuk source lagi
+//note: berikan source yang punya akses RW, jangan simpan di C jika di windows
