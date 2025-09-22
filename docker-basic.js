@@ -92,3 +92,8 @@ docker container create --name <nama-container> --env KEY="value" --env KEY2="va
 //note: env bisa satu atau lebih tinggal disesuaikan, contoh mongo dengan port forwarding :
 docker container create --name mongo1 --publish 27017:27017 --env MONGO_INITDB_ROOT_USERNAME=hasan --env MONGO_INITDB_ROOT_PASSWORD=password mongo:latest
 //Dengan ini mongo pada container docker dapat diakses dari host menggunakan env username & password yang sudah diset
+
+//Container Stats
+//Ketika menjalankan container di host akan terlihat penggunaan resource seperti CPU, memory dll digunakan oleh docker saja
+//Di docker kita bisa melihat detail stats penggunaan resourse lebih detail tiap container yang sedang berjalan
+docker container stats //akan terlihat detail stats penggunaan resource tiap image/app yang jalan di container
