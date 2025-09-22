@@ -97,3 +97,13 @@ docker container create --name mongo1 --publish 27017:27017 --env MONGO_INITDB_R
 //Ketika menjalankan container di host akan terlihat penggunaan resource seperti CPU, memory dll digunakan oleh docker saja
 //Di docker kita bisa melihat detail stats penggunaan resourse lebih detail tiap container yang sedang berjalan
 docker container stats //akan terlihat detail stats penggunaan resource tiap image/app yang jalan di container
+
+//Container Resource Limit
+//Saat membuat container, secara default akan menggunakan semua CPU & Memory yang diberikan ke docker diawal (Mac & Windows)
+//Dan akan menggunakan semua CPU & Memory yang tersedia di sistem host (Linux)
+//Namun jika terjadi kondisi container terlalu banyak memakan CPU & Memory, bisa mengganggu performa container lain atau bahkan ke host
+//Jadi perlu ketika membuat container diawal, langsung berikan resource limit terhadap containernya
+//Menentukan limit memory dengan menambah --memory diikut angka size memory nya (b, k, m, g). --memory 4g
+//Menentukan limit cpu dengan menambah --cpus diikut angka core cpu nya (0.5, 1, 1.5 dst). --cpus 1.5
+docker container create --name <nama-container> --publish <port-host:port-container> --memory 1g --cpus 1.5 <nama-image:tag>
+//Maka jika sudah dijalankan dan di cek stats nya pada bagian memory akan tertera limit memorynya
