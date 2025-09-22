@@ -66,3 +66,12 @@ docker container rm <container-id> / <container-name> //menghapus container
 //Untuk melihat log guna tau detail log aplikasi yang terdapat pada container agar memudahkan debugging
 docker container logs <container-id> / <container-name> //cek log container
 docker container logs -f <container-id> / <container-name> //cek log container secara realtime
+
+//Container Exec
+//Saat membuat container, aplikasi di dalam container hanya bisa diakses dari dalam container
+//Kadang kita perlu masuk ke dalam container itu sendiri, disini bisa menggunakan Container Exec
+//Container exec digunakan untuk mengekseskusi kode program yang terdapat di dalam container (tidak masuk secara langsung)
+docker container exec -i -t <container-id> / <container-name> /bin/bash
+// -i : argument interaktif, menjaga input tetap aktif
+// -t : argument untuk alokasi pseudo-TTY (terminal akses)
+// /bin/bash : contoh kode program yang terdapat di dalam container
