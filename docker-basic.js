@@ -75,3 +75,11 @@ docker container exec -i -t <container-id> / <container-name> /bin/bash
 // -i : argument interaktif, menjaga input tetap aktif
 // -t : argument untuk alokasi pseudo-TTY (terminal akses)
 // /bin/bash : contoh kode program yang terdapat di dalam container
+
+//Container Port
+//Aplikasi yang diinstall pada container mempunyai port, yang hanya bisa diakses dari dalam container itu sendiri
+//Di docker ada Port Forwarding untuk meneruskan port di sistem ke dalam container, atau mengekspos port di container ke luar
+docker container create --name <nama-container> --publish <port-host:port-container> <nama-image:tag> //port forwarding
+//note : jika ingin > 1 port forwarding bisa tambahkan parameter --publish nya atau disingkat -p
+//Jika sudah dibuat container dengan port forwarding dan dijalankan, maka pada container list akan tertera port forwarding nya
+//Dengan ini jadi bisa mengakses port aplikasi pada container menggunakan laptop host kita, misal akses nginx container pada localhost:8080
