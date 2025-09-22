@@ -83,3 +83,12 @@ docker container create --name <nama-container> --publish <port-host:port-contai
 //note : jika ingin > 1 port forwarding bisa tambahkan parameter --publish nya atau disingkat -p
 //Jika sudah dibuat container dengan port forwarding dan dijalankan, maka pada container list akan tertera port forwarding nya
 //Dengan ini jadi bisa mengakses port aplikasi pada container menggunakan laptop host kita, misal akses nginx container pada localhost:8080
+
+//Container Environment Variable
+//Salah satu teknik agar konfigurasi aplikasi bisa diubah dinamis saat membuat app adalah menggunakan Environment Variable
+//Dengan Environment Variable, kita bisa mengubah-ubah konfigurasi app tanpa harus mengubah kode aplikasi
+//Docker Container memiliki parameter yang bisa digunakan untuk mengirim environment variable ke app yang terdapat dalam container
+docker container create --name <nama-container> --env KEY="value" --env KEY2="value" <nama-image:tag>
+//note: env bisa satu atau lebih tinggal disesuaikan, contoh mongo dengan port forwarding :
+docker container create --name mongo1 --publish 27017:27017 --env MONGO_INITDB_ROOT_USERNAME=hasan --env MONGO_INITDB_ROOT_PASSWORD=password mongo:latest
+//Dengan ini mongo pada container docker dapat diakses dari host menggunakan env username & password yang sudah diset
