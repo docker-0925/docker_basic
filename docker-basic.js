@@ -132,3 +132,15 @@ docker volume rm <nama-volume> //menghapus volume, pastikan volume sudah tidak d
 //Volume yang sudah dibuat, bisa digunakan oleh container, agar ketika container dihapus -> data tetap aman di volume (seperti bind mounts)
 //Caranya sama seperti bind mount, menggunakan parameter --mount dengan type : volume dan soruce : nama volume
 docker container create --name mongo3 --publish 27020:27017 --mount "type=volume,source=mongovolume,destination=/data/db" --env MONGO_INITDB_ROOT_USERNAME=hasan --env MONGO_INITDB_ROOT_PASSWORD=password mongo:latest
+
+//Backup Volume
+//Belum ada cara otomatis untuk melakukan backup volume yang sudah dibuat
+//Namun bisa memanfaatkan container untuk melakukan backup data yang ada di volume ke dalam archive zip/tar.gz
+//1. Stop container yang menggunakan volume yang ingin dibackup
+//2. Buat container baru dengan dua mount: volume yang ingin dibackup & bind mount folder dari host, jalankan
+docker container create --name nginxbackup --mount "type=bind,source=\QA\PZN\Docker\docker_basic\backup,destination=/backup" --mount "type=volume,source=mongoolume,destination=/data" nginx:latest
+//3. Lakukan backup menggunakan container dengan cara mengarchive isi volume & simpan di bind mount folder
+//4. Isi file backup sekarang ada di folder sistem host yang bind mount tadi
+//5. Stop & delete container yang digunakan untuk melakukan backup
+//note: terdapat cara lebih cepat untuk backup volume dengan perintah : (untuk app yang bisa auto stop setelah selesai, misal : ubuntu)
+docker container run --rm --name ubuntubackup --mount "type=bind,source=\QA\PZN\Docker\docker_basic\backup,destination=/backup" --mount "type=volume,source=mongoolume,destination=/data" ubuntu:latest tar cvf /backup/backup.tar.gz /data
