@@ -118,3 +118,12 @@ docker container create --name <nama-container> --mount "type=bind,source=folder
 docker container create --name mongo3 --publish 27019:27017 --mount "type=bind,source=D:\QA\PZN\Docker\docker_basic\mongo,destination=/data/db" --env MONGO_INITDB_ROOT_USERNAME=hasan3 --env MONGO_INITDB_ROOT_PASSWORD=password mongo:latest
 //Jika kita jalankan container diatas, maka pada folder source akan tersimpan file2 yang dibutuhkan mongo, dengan begini jika kita menghapus container tsb -> data di source tidak akan ikut terhapus dan bisa kita gunakan untuk source lagi
 //note: berikan source yang punya akses RW, jangan simpan di C jika di windows
+
+//Docker Volume
+//Pada docker versi terbaru lebih direkomendasikan menggunakan Docker Volume daripada Bind Mounts
+//Docker Volume bisa management volume untuk membuat, melihat daftar, dan menghapus volume
+//Volume adalah storage yang digunakan untuk menyimpan data yang disimpan & dimanage oleh docker, sedangkan Bind Mounts disimpan di host
+//Saat pertama kali membuat container, secara default data container juga disimpan di dalam volume
+docker volume ls //melihat daftar volume
+docker volume create <nama-volume> //membuat volume
+docker volume rm <nama-volume> //menghapus volume, pastikan volume sudah tidak digunakan container (stop container) agar dapat dihapus
