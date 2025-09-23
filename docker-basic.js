@@ -165,3 +165,10 @@ docker container run --rm --name ubunturestore --mount "type=bind,source=\QA\PZN
 docker network ls //melihat daftar network di docker
 docker network create --driver <nama-driver> <nama-network> //membuat network di docker
 docker network rm <nama-network> //menghapus network di docker, tidak dapat dihapus jika sudah digunakan container (harus hapus container dulu dari network)
+
+//Container Network
+//Setelah membuat network, bisa tambahkan container ke network agar dapat komunikasi dengan container lain di network yang sama (bridge)
+//Container dapat mengakses container lain dengan menyebutkan hostname/nama dari container yang dituju
+docker container create --name <nama-container> --network <nama-network> <nama-image:tag> //menambah container ke network di awal pembuatan container
+docker container disconnect <nama-network> <nama-container> //menghapus container dari network
+docker network connect <nama-network> <nama-container> //menambahkan container yang sudah dibuat ke network
