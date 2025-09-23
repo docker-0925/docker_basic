@@ -127,3 +127,8 @@ docker container create --name mongo3 --publish 27019:27017 --mount "type=bind,s
 docker volume ls //melihat daftar volume
 docker volume create <nama-volume> //membuat volume
 docker volume rm <nama-volume> //menghapus volume, pastikan volume sudah tidak digunakan container (stop container) agar dapat dihapus
+
+//Container Volume
+//Volume yang sudah dibuat, bisa digunakan oleh container, agar ketika container dihapus -> data tetap aman di volume (seperti bind mounts)
+//Caranya sama seperti bind mount, menggunakan parameter --mount dengan type : volume dan soruce : nama volume
+docker container create --name mongo3 --publish 27020:27017 --mount "type=volume,source=mongovolume,destination=/data/db" --env MONGO_INITDB_ROOT_USERNAME=hasan --env MONGO_INITDB_ROOT_PASSWORD=password mongo:latest
