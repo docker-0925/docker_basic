@@ -144,3 +144,13 @@ docker container create --name nginxbackup --mount "type=bind,source=\QA\PZN\Doc
 //5. Stop & delete container yang digunakan untuk melakukan backup
 //note: terdapat cara lebih cepat untuk backup volume dengan perintah : (untuk app yang bisa auto stop setelah selesai, misal : ubuntu)
 docker container run --rm --name ubuntubackup --mount "type=bind,source=\QA\PZN\Docker\docker_basic\backup,destination=/backup" --mount "type=volume,source=mongoolume,destination=/data" ubuntu:latest tar cvf /backup/backup.tar.gz /data
+
+//Restore Volume
+//Setelah melakukan backup volume ke dalam file archive, dapat mencoba untuk restore data backup ke volume baru
+//1. Membuat volume baru untuk lokasi restore  data backup
+//2. Membuat container baru dengan dua mount : volume baru untuk restore backup & bind mount folder dari host yang berisi file backup
+docker container run --rm --name ubunturestore --mount "type=bind,source=\QA\PZN\Docker\docker_basic\backup,destination=/backup" --mount "type=volume,source=mongorestore,destination=/data" ubuntu:latest bash -c "cd /data && tar xvf /backup/backup.tar.gz --strip 1"
+//3. Melakukan restore menggunakan container dengan cara ekstract isi backup file ke dalam volume
+//4. Isi file backup sekarang sudah di restore ke volume
+//5. Delete container yang kita gunakan untuk melakukan restore tadi
+//6. Volume baru yang berisi data backup siap digunakan oleh container baru
