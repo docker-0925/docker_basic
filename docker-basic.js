@@ -154,3 +154,14 @@ docker container run --rm --name ubunturestore --mount "type=bind,source=\QA\PZN
 //4. Isi file backup sekarang sudah di restore ke volume
 //5. Delete container yang kita gunakan untuk melakukan restore tadi
 //6. Volume baru yang berisi data backup siap digunakan oleh container baru
+
+//Docker Network
+//Saat membuat container akan terisolasi satu sama lain, tidak bisa melakukan komunikasi antar container
+//Namun terdapat fitur Network yang bisa membuat jaringan di dalam docker untuk mengoneksikan dengan container lain di satu network yang sama
+//Terdapat beberapa network driver yang bisa digunakan di docker :
+//1. bridge : untuk membuat network scr virtual memungkinkan container yg connect bridge yang sama bisa komunikasi
+//2. host : untuk membuat network yg sama dgn host, namun hanya bisa jalan di docker os linux
+//3. none : default, untuk membuat network yang tidak bisa berkomunikasi
+docker network ls //melihat daftar network di docker
+docker network create --driver <nama-driver> <nama-network> //membuat network di docker
+docker network rm <nama-network> //menghapus network di docker, tidak dapat dihapus jika sudah digunakan container (harus hapus container dulu dari network)
