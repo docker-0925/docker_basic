@@ -179,3 +179,11 @@ docker image inspect <nama-image> //melihat detail dari image
 docker container inspect <nama-image> //melihat detail dari container
 docker volume inspect <nama-image> //melihat detail dari volume
 docker network inspect <nama-image> //melihat detail dari network
+
+//Prune
+//Digunakan untuk membersihkan secara otomatis sesuatu yang sudah dtidak digunakan/distop di docker
+docker container prune //menghapus semua container yang distop
+docker image prune //menghapus semua container yang tidak digunakan container
+docker network prune //menghapus semua container yang tidak digunakan container
+docker volume prune //menghapus semua container yang tidak digunakan container
+docker sysem prune //menghapus semua container, network, dan image yang tidak digunakan
