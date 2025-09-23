@@ -172,3 +172,10 @@ docker network rm <nama-network> //menghapus network di docker, tidak dapat diha
 docker container create --name <nama-container> --network <nama-network> <nama-image:tag> //menambah container ke network di awal pembuatan container
 docker container disconnect <nama-network> <nama-container> //menghapus container dari network
 docker network connect <nama-network> <nama-container> //menambahkan container yang sudah dibuat ke network
+
+//Inspect
+//Digunakan untuk melihat detail dari tiap hal yang ada di docker spt: image, container, volume, network dll
+docker image inspect <nama-image> //melihat detail dari image
+docker container inspect <nama-image> //melihat detail dari container
+docker volume inspect <nama-image> //melihat detail dari volume
+docker network inspect <nama-image> //melihat detail dari network
